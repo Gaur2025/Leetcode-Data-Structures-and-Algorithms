@@ -1,15 +1,18 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # creating a  hashmap for storing the values
-        hashmap = {}
+        # we need to create a hashmap
+        res = {}
 
-        for number in range(len(nums)):
-            compliment = target - nums[number]
-            if compliment in hashmap:
-                return [hashmap[compliment], number]
-            
-            hashmap[nums[number]] = number
+        # iterate through all the values of nums
+        for idx in range(len(nums)):
+            complement = target - nums[idx]
+            if complement in res:
+                # return [complement_index_fromhashmap, current_index]
+                return [res[complement], idx]
 
+
+            # add values to the hashmap
+            res[nums[idx]] = idx
 
         # if not found
         return []
