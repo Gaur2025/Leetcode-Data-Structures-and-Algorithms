@@ -19,4 +19,8 @@ class Solution:
 
 
         return maxArea
+
+
+        # TC = O(n)
+        # SC = O(n)
         
