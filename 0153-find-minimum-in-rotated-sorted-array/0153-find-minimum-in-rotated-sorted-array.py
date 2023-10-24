@@ -5,7 +5,7 @@ class Solution(object):
         :rtype: int
         """
         # try to find th evalue in the sorted half
-        ans = 99999
+        ans = float("inf")
         left, right = 0, len(nums) - 1
 
         while left <= right:
@@ -19,7 +19,7 @@ class Solution(object):
             else:
                 # right half is sorted
                 ans = min(ans, nums[mid])
-                # move to the other half
+                # move to the other half (left)
                 right = mid - 1
 
         return ans
