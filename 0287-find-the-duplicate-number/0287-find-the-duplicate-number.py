@@ -1,15 +1,21 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        hashSet = set()     # to store the unique values from nums
+        # Using Floyd's algorithm
 
-        for i in range(len(nums)):     # O(n)
-            if nums[i] in hashSet:
-                return nums[i]
+        # finding 1st intersection of slow and fast pointer
+        slow, fast = 0, 0
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
 
-            # add this to the hashSet
-            hashSet.add(nums[i])
+            if slow == fast:
+                break
 
-        # if no duplicate found
-        return -1
-        
+        # Now we create one new pointer at beginning
+        slow2 = 0
+        while True:
+            slow = nums[slow]
+            slow2 = nums[slow2]
+            if slow == slow2:
+                return slow
         
