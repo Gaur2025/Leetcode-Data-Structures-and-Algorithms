@@ -5,19 +5,23 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    # Optional[TreeNode] is a type that can either be a TreeNode or None.
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         """
-            This function is responsible for:
-        1.	To check whether left and right nodes of the root exist.
-        2.	Then dfs at each node, and swap its left and right nodes
+        This function is responsible for inverting a given BT
+        Inversion means ⇒ node.left, node.right = node.right, node.left (this needs to be implemented)
         """
+        if not root:
+            return None
+
+        # swap nodes function
         def swapNodes(node):
             if not node:
-                return 
-            
-            # Swap the left and right child
+                return None
+        
             node.left, node.right = node.right, node.left
 
+            # if one of the left or right node is present
             if node.left:
                 swapNodes(node.left)
             if node.right:
@@ -25,8 +29,11 @@ class Solution:
 
             return node
 
-        return swapNodes(root)
+        swapNodes(root)
 
         return root
+
+    # TC = O(height of the given BT)  (Worst Case)
+    # SC = O(1)  
 
         
