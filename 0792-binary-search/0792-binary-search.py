@@ -21,6 +21,6 @@ class Solution(object):
             else:
                 return mid
 
+        # if not found 
         return -1
-
         
