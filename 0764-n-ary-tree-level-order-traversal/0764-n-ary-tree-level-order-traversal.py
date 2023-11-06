@@ -10,23 +10,21 @@ class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
 
         res = []
-
-        # creating a queue
         q = collections.deque()
 
-        # adding root into the queue
+        # adding root to the q
         q.append(root)
 
         while q:
             lenQ = len(q)
             level = []
 
-            # iterating over q to get all the level nodes
+            #  going over each node present in the q
             for i in range(lenQ):
                 node = q.popleft()
                 if node:
                     level.append(node.val)
-                    # adding node's children to the q
+                    # adding children of node to queue
                     for child in node.children:
                         q.append(child)
 
