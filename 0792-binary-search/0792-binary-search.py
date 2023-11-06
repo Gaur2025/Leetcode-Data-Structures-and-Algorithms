@@ -8,10 +8,10 @@ class Solution(object):
         left, right = 0, len(nums) - 1
 
         # [1, 2, 3, 4, 5, 6, 7]
-        #  l       m         r
+        #  l        m        r
 
         while left <= right:
-            # getting mid index
+            # mid index
             mid = (left + right) // 2
 
             if nums[mid] < target:
@@ -21,7 +21,6 @@ class Solution(object):
             else:
                 return mid
 
-        # if not found 
         return -1
 
         
